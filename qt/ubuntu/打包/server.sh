@@ -7,4 +7,4 @@ dirname=$PWD/$dirname
 fi  
 LD_LIBRARY_PATH=$dirname  
 export LD_LIBRARY_PATH  
-nohup $dirname/$appname "$@" &
+nohup $dirname/$appname >/dev/null 2>&1 &
