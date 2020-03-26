@@ -15,3 +15,10 @@
 
     #define PACKAGE_VERSION "0.13.0"
 8. 编译生成 `libthrift.lib`
+
+# 生成
+1. 下载thrift.exe文件
+2. 添加thrift文件
+3. 生成代码
+    - thrift -r --gen java x.thrift
+    - thrift -r --gen cpp x.thrift
