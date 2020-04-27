@@ -21,7 +21,5 @@
     --branch releases/stable --depth 1`
 2. `cd mongo-cxx-driver/build`
 3. `cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..`
-4. `sudo make EP_mnmlstc_core`
-5. `make && sudo make install`
-  - 头文件 `/usr/local/include/mongocxx/v_noabi`、`/usr/local/include/bsoncxx/v_noabi`
-  - 库文件 `/usr/local/lib/libmongocxx.dylib`、`/usr/local/lib/libbsoncxx.dylib`
+4. `cmake -G "Visual Studio 14 2015 Win64" -DBOOST_ROOT=C:\local\boost_1_60_0 -DCMAKE_PREFIX_PATH=C:\mongo-c-driver -DCMAKE_INSTALL_PREFIX=C:\mongo-cxx-driver`
+5. `msbuild.exe ALL_BUILD.vcxproj`,`msbuild.exe INSTALL.vcxproj`
