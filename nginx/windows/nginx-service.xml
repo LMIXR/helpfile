@@ -1,0 +1,14 @@
+<service>
+  <id>nginx</id>
+  <name>Nginx Service</name>
+  <description>High Performance Nginx Service</description>
+  <logpath>D:\nginx-1.17.10\logs</logpath>
+  <log mode="roll-by-size">
+    <sizeThreshold>10240</sizeThreshold>
+    <keepFiles>8</keepFiles>
+  </log>
+  <executable>D:\nginx-1.17.10\nginx.exe</executable>
+  <startarguments>-p D:\nginx-1.17.10</startarguments>
+  <stopexecutable>D:\nginx-1.17.10\nginx.exe</stopexecutable>
+  <stoparguments>-p D:\nginx-1.17.10 -s stop</stoparguments>
+</service>
