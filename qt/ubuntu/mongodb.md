@@ -5,8 +5,6 @@
 1. [C驱动](http://mongoc.org/)
 2. [C++驱动](http://mongocxx.org/)
 
-### Windows
-
 #### mongoc
 1. `sudo apt-get install cmake libssl-dev libsasl2-dev`
 2. 下载 `wget https://github.com/mongodb/mongo-c-driver/releases/download/x.y.z/mongo-c-driver-x.y.z.tar.gz`
