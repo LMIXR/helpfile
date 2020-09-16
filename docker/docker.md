@@ -19,3 +19,4 @@
     - 停止`systemctl stop docker`
     - 状态`systemctl status docker`
     - 自启`systemctl enable docker`
+    - 禁止自启 `systemctl disable docker`
