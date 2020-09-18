@@ -1,0 +1,13 @@
+[Unit]
+Description=zlmediaserver
+After=syslog.target network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+ExecStart=/opt/mediaserver/zlmedia/start.sh
+ExecStop=/opt/mediaserver/zlmedia/stop.sh
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
