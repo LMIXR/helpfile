@@ -14,10 +14,10 @@
 
 ## jetson nano
 
-1. 复制`build.linux.x64_gpu.sh`文件，修改为`build.arm.x64_gpu.sh`，内容修改如下
+1. 复制`build.linux.x64_gpu.sh`文件，修改为`build.linux.arm_gpu.sh`，内容修改如下
 
 ```makefile
-     export BUILD_DIR=build.arm.x64_gpu
+     export BUILD_DIR=build.linux.arm_gpu
      export BUILD_TYPE=Release
      export PLATFORM_TARGET=arm
 
@@ -48,3 +48,6 @@
 
      make install
 ```
+
+2. 修改脚本权限 `chmod a+x build.linux.arm_gpu.sh`。
+3. 运行脚本 `./build.linux.arm_gpu.sh`。

@@ -13,3 +13,7 @@
 3. 修改qsqldriverbase.pri，注释掉`include($$shadowed($$PWD)/qtsqldrivers-config.pri)`
 4. 编译 `~/Qt5.13.2/5.13.2/gcc_64/bin/qmake "INCLUDEPATH += /usr/include/mysql" "LIBS += -L/usr/lib/mysql -lmysqlclient" mysql.pro`，生产makefile文件，然后执行`sudo make`，生产so文件，位置是`../plugins/sqldrivers`。
 5. 将生产的so文件复制到`Qt5.13.2\5.13.2\gcc_64\plugins\sqldrivers`目录。
+
+# tx2
+
+1. mysql驱动 `sudo apt-get install libqt5sql5-mysql`。
