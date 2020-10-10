@@ -20,6 +20,7 @@
 1. 上传安装包 apache-tomcat-8.5.41.tar.gz
 2. 解压到 /usr/local/tomcat8
 3. 启动 /usr/local/tomcat8/bin/startup.sh 
+4. 安装curl`sudo apt install -y curl`，检测curl 127.0.0.1:8080
 
 ## 16.04自启动
 
