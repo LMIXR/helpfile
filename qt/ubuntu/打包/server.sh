@@ -26,7 +26,8 @@ start() {
         exit 1
     else
         ## Change from /dev/null to something like /var/log/$PROG if you want to save output.
-       	$PROG_PATH/$PROG $PROG_ARGS 2>&1 >/var/log/$PROG &
+       	## $PROG_PATH/$PROG $PROG_ARGS 2>&1 >/var/log/$PROG &
+        nohup $PROG_PATH/$PROG $PROG_ARGS 1>/dev/null 2>&1 &
 	pid=`ps -ef | grep $PROG | grep -v grep | grep $PROG_PATH | awk '{print $2}'`
         echo "$PROG started"
         echo $pid > "$PID_PATH/$PROG.pid"
