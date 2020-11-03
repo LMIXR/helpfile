@@ -21,6 +21,6 @@
 2. `cd mongo-cxx-driver/build`
 3. `cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..`
 4. `sudo make EP_mnmlstc_core`
-5. `make && sudo make install`
+5. `sudo make && sudo make install`
   - 头文件 `/usr/local/include/mongocxx/v_noabi`、`/usr/local/include/bsoncxx/v_noabi`
   - 库文件 `/usr/local/lib/libmongocxx.dylib`、`/usr/local/lib/libbsoncxx.dylib`
