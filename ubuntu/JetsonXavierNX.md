@@ -2,6 +2,8 @@
 
 ## 复制SD卡内容NVMe
 
+### 界面操作
+
 1. 格式化nvme，打开disk软件，选中硬盘，右上角"Format Disk",第一个选择Quick那个项，第二个选择GPT。
 2. 点击加号按钮，Next进入Format Volume，输入个名字。下边选择ext4。
 3. 点击下边最左边的开始按钮，挂载硬盘。
@@ -11,6 +13,21 @@
     - `./copy-rootfs-ssd.sh`
     - `./setup-service.sh`
     - `reboot`
+
+### 命令行操作
+
+1. 进入parted，`sudo parted /dev/nvme0n1`
+2. 将磁盘设置为gpt格式，`mklabel gpt`
+3. 将磁盘所有的容量设置为GPT格式，`mkpart logical 0 -1 `
+4. 查看分区结果，`print`
+5. 退出parted，`quit`
+6. 进行分区，`sudo fdisk /dev/nvme0n1`
+7. 输入n，增加新分区，primary 主分区
+8. 分区号输入1
+9. First sector，直接ENTER，将填入默认值
+10. 输入p，查看分区，看到/dev/nvme0n1p1即可。
+11. 格式化分区，`sudo mke2fs -t ext4  /dev/nvme0n1p1`
+12. 使用rootOnNVMe复制sd数据到硬盘。
 
 ## 开启风扇
 
