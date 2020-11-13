@@ -21,23 +21,24 @@
 3. 将磁盘所有的容量设置为GPT格式，`mkpart logical 0 -1 `
 4. 查看分区结果，`print`
 5. 退出parted，`quit`
-6. 进行分区，`sudo fdisk /dev/nvme0n1`
+6. 进行分区，`sudo fdisk /dev/nvme0n1`，输入p如果已存在分区，则跳过
 7. 输入n，增加新分区，primary 主分区
 8. 分区号输入1
 9. First sector，直接ENTER，将填入默认值
 10. 输入p，查看分区，看到/dev/nvme0n1p1即可。
 11. 格式化分区，`sudo mke2fs -t ext4  /dev/nvme0n1p1`
+12. 输入df -l 查看分区，如果没有则挂在分区`sudo mount /dev/nvme0n1p1 /mnt`
 12. 使用rootOnNVMe复制sd数据到硬盘。
 
 ## 开启风扇
 
 1. 临时开启`sudo sh -c "echo 150 > /sys/devices/pwm-fan/target_pwm"`，重启失效。
-2. 开机服务启动风扇，新建配置文件`/etc/pwmfan`，添加可执行权限`sudo chmod a+x /etc/pwmfan`，插入如下内容
+2. 开机服务启动风扇，新建配置文件`sudo vi /etc/pwmfan`，添加可执行权限`sudo chmod a+x /etc/pwmfan`，插入如下内容
     ```sh
     #!/bin/sh
     sudo sh -c "echo 150 > /sys/devices/pwm-fan/target_pwm"
     ```
-3. 添加服务`vi /etc/systemd/system/pwmfan.service`，添加可执行权限`sudo chmod a+x /etc/systemd/system/pwmfan.service`，开启服务`sudo systemctl daemon-reload`,`sudo systemctl enable pwmfan.service`插入如下内容
+3. 添加服务`sudo vi /etc/systemd/system/pwmfan.service`，添加可执行权限`sudo chmod a+x /etc/systemd/system/pwmfan.service`，开启服务`sudo systemctl daemon-reload`,`sudo systemctl enable pwmfan.service`插入如下内容
     ```sh
     #!/bin/sh
     [Unit]
