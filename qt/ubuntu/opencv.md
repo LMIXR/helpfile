@@ -16,17 +16,21 @@
 
 ## 卸载
 
-1. 进入build目录，执行`sudo make uninstall`，`cd ..`，`sudo rm -r build`，`sudo rm -r /usr/local/include/opencv2 /usr/local/include/opencv /usr/include/opencv /usr/include/opencv2 /usr/local/share/opencv /usr/local/share/OpenCV /usr/share/opencv /usr/share/OpenCV /usr/local/bin/opencv* /usr/local/lib/libopencv*`。
+1. 进入build目录，执行`sudo make uninstall`，`cd ..`，`sudo rm -r build`，`sudo rm -r /usr/local/include/opencv2 /usr/local/include/opencv /usr/local/include/opencv4 /usr/include/opencv /usr/include/opencv2 /usr/include/opencv4 /usr/local/share/opencv /usr/local/share/opencv2 /usr/local/share/opencv4 /usr/share/opencv /usr/share/opencv2 /usr/share/opencv4 /usr/local/bin/opencv* /usr/local/lib/libopencv* /usr/local/lib/pkgconfig/opencv4.pc  /usr/local/lib/pkgconfig/opencv2.pc /usr/local/lib/cmake/opencv4 /usr/local/lib/cmake/opencv2`。
 
 2. 其他资料
-sudo rm -r /usr/local/include/opencv4 
 sudo rm -r /usr/local/include/opencv 
+sudo rm -r /usr/local/include/opencv2 
+sudo rm -r /usr/local/include/opencv4 
 sudo rm -r /usr/include/opencv 
+sudo rm -r /usr/include/opencv2
 sudo rm -r /usr/include/opencv4 
 sudo rm -r /usr/local/share/opencv 
-sudo rm -r /usr/local/share/OpenCV 
+sudo rm -r /usr/local/share/opencv2
+sudo rm -r /usr/local/share/opencv4 
 sudo rm -r /usr/share/opencv 
-sudo rm -r /usr/share/OpenCV 
+sudo rm -r /usr/share/opencv2
+sudo rm -r /usr/share/opencv4 
 sudo rm -r /usr/local/bin/opencv* 
 sudo rm -r /usr/local/lib/libopencv*
 sudo rm -r /usr/local/lib/pkgconfig/opencv4.pc
@@ -45,6 +49,13 @@ sudo rm -r /usr/local/lib/cmake/opencv4
     - sudo apt install libjasper1 libjasper-dev
 4. 安装cmake-gui，`sudo apt-get install cmake-qt-gui`，打开`cmake-gui`。
 5. `Where is the source code` 选择opencv目录，  新建build目录，`Where is build the binaries`选择build目录，点击configure。
-6. OPENCV_GENERATE_PKGCONFIG勾选，CMAKE_BUILD_TYPE填写Release，OPENCV_EXTRA_MODULES_PATH填写/home/huitou/tools/opencv_contrib-4.2.0/modules目录，(如果有错误添加编译选项CMAKE_C_COMPILER=/usr/bin/gcc-7)，BUILD_opencv_world勾选（暂时没加，编译不过）。支持cuda，勾选WITH_CUDA 和OPENCV_DNN_CUDA 
-7. 下载ippicv，https://github.com/opencv/opencv_3rdparty/tree/ippicv/master_20180723/ippicv，ippicv_2019_lnx_intel64_general_20180723.tgz让人本地tomcat目录或者能http访问的地方，编辑/opencv/3rdparty/ippicv/ippicv.cmake，将47行换成可以访问的地址，如http://127.0.0.1:18080/upload/
-8. 点击generate生产makefile文件，进入build目录，make -j8，sudo make install
+6. OPENCV_GENERATE_PKGCONFIG勾选，CMAKE_BUILD_TYPE填写Release，OPENCV_EXTRA_MODULES_PATH填写/home/huitou/tools/opencv_contrib-4.2.0/modules目录，(如果有错误添加编译选项CMAKE_C_COMPILER=/usr/bin/gcc-7)，BUILD_opencv_world勾选（暂时没加，编译不过）。支持cuda，勾选WITH_CUDA ，OPENCV_DNN_CUDA，WITH_NVCUVID，OPENCV_ENABLE_NONFREE，去掉WITH_ADE
+7. 点击generate生产makefile文件，进入build目录，make -j8，sudo make install
+
+注：
+1. 提示缺少nvcuvid.h，下载Video_Codec_SDK，将interface下的文件拷贝到/usr/include下，/Lib/linux/stubs/x86_64下的文件拷贝到/usr/lib/x86_64-linux-gnu/下，如果不拷贝，没有WITH_NVCUVID选项
+2. 提示缺少boostdesc_bgm.i，下载相关文件放到opencv_contrib-4.2.0/modules/xfeatures2d/src下面
+3. 下载ippicv，https://github.com/opencv/opencv_3rdparty/tree/ippicv/master_20180723/ippicv，ippicv_2019_lnx_intel64_general_20180723.tgz，放在home目录/home/ubuntu/install，编辑/opencv/3rdparty/ippicv/ippicv.cmake，将47行换成可以访问的地址，如file:///home/usrname/install/
+4. 下载face_landmark_model.dat，https://raw.githubusercontent.com/opencv/opencv_3rdparty/8afa57abc8229d611c4937165d20e2a2d9fc5a12/face_landmark_model.dat， 放在home目录/home/ubuntu/install，修改opencv_contrib-3.4.0/modules/face/CMakeLists.txt，访问地址换成file:///home/usrname/install/
+5. 提示缺少nvOpticalFlowCommon.h，下载https://github.com/NVIDIA/NVIDIAOpticalFlowSDK，放到/usr/include下
+6. CUDA_ARCH_BIN 删除5.3以下的
