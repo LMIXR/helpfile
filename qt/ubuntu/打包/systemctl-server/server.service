@@ -1,13 +1,12 @@
 [Unit]
-Description=wvpserver
+Description=server service
 After=syslog.target network.target remote-fs.target nss-lookup.target
 
 [Service]
 Type=simple
-ExecStart=/opt/mediaserver/wvp/start.sh
-ExecStop=/opt/mediaserver/wvp/stop.sh
+ExecStart=/opt/server/start.sh
+ExecStop=/opt/server/stop.sh
 PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
-
