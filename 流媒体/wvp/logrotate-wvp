@@ -1,0 +1,8 @@
+/opt/mediaserver/wvp/logs/log.txt {
+    daily
+    missingok
+    rotate 100
+    nocompress
+    copytruncate
+    dateext
+}
