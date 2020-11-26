@@ -1,3 +1,3 @@
 #!/bin/sh
-nohup /opt/mediaserver/zlmedia/MediaServer >/dev/null 2>&1
+/opt/mediaserver/zlmedia/MediaServer >/dev/null &
 echo $! > /opt/mediaserver/zlmedia/pid.txt

@@ -3,7 +3,7 @@ Description=server service
 After=syslog.target network.target remote-fs.target nss-lookup.target
 
 [Service]
-Type=simple
+Type=forking
 ExecStart=/opt/server/start.sh
 ExecStop=/opt/server/stop.sh
 PrivateTmp=true

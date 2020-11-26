@@ -1,3 +1,3 @@
 #!/bin/sh
-nohup /opt/server/server >/dev/null 2>&1
+/opt/server/server >/dev/null &
 echo $! > /opt/server/pid.txt
