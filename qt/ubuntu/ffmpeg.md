@@ -41,7 +41,17 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 2. 解压，`tar xzvf x264`，`cd f x264`
 3. 配置，`PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-shared`
 4. 编译安装，`make -j8`,  `sudo make install`
-5. `./configure  --enable-shared`重新编译安装，ffmpeg需要用到
+5. `./configure  --enable-shared`重新编译安装，ffmpeg需要用到(或者直接复制lib库到)
+
+
+### 编译libx265
+
+1. 下载， `git clone https://github.com/videolan/x265.git`
+2. 进入，`cd x265/build/linux`
+3. 配置，`cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=on ../../source`
+4. 编译安装，`make -j8`,  `sudo make install`
+5. 若报错,将make-Makefiles.bash中的ccmake改为cmake
+6. `cmake -G "Unix Makefiles"  -DENABLE_SHARED:bool=on ../../source`重新编译安装，ffmpeg需要用到(或者直接复制lib库到)
 
 ### 编译ffnvcodec
 
@@ -68,14 +78,17 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
   --enable-gpl \
   --enable-libfreetype \
   --enable-libx264 \
+  --enable-libx265 \
   --enable-nonfree \
   --enable-cuda \
   --enable-cuvid \
   --enable-nvenc \
-  --enable-libnpp
+  --enable-libnpp \
+  --enable-cuda-nvcc
   4. 编译安装，`make -j8`,  `sudo make install`
-  5. 拷贝，`sudo cp /usr/local/ffmpeg/lib/lib* /usr/local/lib`
-  6. 验证，`ffmpeg -hwaccels`，出现cuvid（4.3.1版本显示cuda），表示成功
+  5. 拷贝，`sudo cp /usr/local/ffmpeg/lib/lib* /usr/local/lib` ( 版本3不需要)
+  6. 执行 `sudo ldconfig`。
+  7. 验证，`ffmpeg -hwaccels`，出现cuvid（4.3.1版本显示cuda），表示成功
 
 ### 测试
 
