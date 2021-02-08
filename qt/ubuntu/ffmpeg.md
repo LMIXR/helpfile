@@ -19,6 +19,7 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 ## 硬件加速编译
 
 1. home目录创建ffmpeg_build目录和bin目录，用完可以删除
+2. 安装 curl，sudo apt-get install curl
 
 ### 编译nasm
 
@@ -33,7 +34,7 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 2. 解压，`tar xzvf yasm-1.3.0.tar.gz`，`cd yasm-1.3.0`
 3. 配置，`./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"`
 4. 编译安装，`make -j8`,  `sudo make install`
-5. 下边编译libx264需要在/usr/local/lib找yasm库，所有重新配置`./configure`，重新编译安装一遍。
+5. 下边编译libx264需要在/usr/local/lib找yasm库，所有重新配置`./configure`，重新编译安装一遍(过时，指定PKG则不需要)。
 
 ### 编译libx264
 
@@ -41,7 +42,7 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 2. 解压，`tar xzvf x264`，`cd f x264`
 3. 配置，`PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-shared`
 4. 编译安装，`make -j8`,  `sudo make install`
-5. `./configure  --enable-shared`重新编译安装，ffmpeg需要用到(或者直接复制lib库到)
+5. `./configure  --enable-shared`重新编译安装，ffmpeg需要用到(或者直接复制lib库到)(过时，指定PKG则不需要)
 
 
 ### 编译libx265
@@ -51,7 +52,7 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 3. 配置，`cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=on ../../source`
 4. 编译安装，`make -j8`,  `sudo make install`
 5. 若报错,将make-Makefiles.bash中的ccmake改为cmake
-6. `cmake -G "Unix Makefiles"  -DENABLE_SHARED:bool=on ../../source`重新编译安装，ffmpeg需要用到(或者直接复制lib库到)
+6. `cmake -G "Unix Makefiles"  -DENABLE_SHARED:bool=on ../../source`重新编译安装，ffmpeg需要用到(或者直接复制lib库到)(过时，指定PKG则不需要)
 
 ### 编译ffnvcodec
 
@@ -65,13 +66,14 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 
 1. 参考https://www.jianshu.com/p/59da3d350488
 2. 下载源代码，版本3.4.8或者4.3.1
-3. 配置，PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:${PKG_CONFIG_PATH}" ./configure \
+3. 配置，PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig:${PKG_CONFIG_PATH}" ./configure \
   --prefix=/usr/local/ffmpeg \
   --pkg-config-flags="--static" \
   --extra-cflags="-I$HOME/ffmpeg_build/include -I/usr/local/cuda/include -fPIC" \
   --extra-ldflags="-L$HOME/ffmpeg_build/lib -L/usr/local/cuda/lib64" \
   --extra-libs=-lpthread \
   --extra-libs=-lm \
+  --bindir="$HOME/bin" \
   --enable-ffplay \
   --enable-ffprobe \
   --enable-shared \
@@ -85,6 +87,8 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
   --enable-nvenc \
   --enable-libnpp \
   --enable-cuda-nvcc
+
+  $HOME/ffmpeg_build/lib/pkgconfig可以换成/usr/local/lib/pkgconfig
   4. 编译安装，`make -j8`,  `sudo make install`
   5. 拷贝，`sudo cp /usr/local/ffmpeg/lib/lib* /usr/local/lib` ( 版本3不需要)
   6. 执行 `sudo ldconfig`。
