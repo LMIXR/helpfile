@@ -73,7 +73,6 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
   --extra-ldflags="-L$HOME/ffmpeg_build/lib -L/usr/local/cuda/lib64" \
   --extra-libs=-lpthread \
   --extra-libs=-lm \
-  --bindir="$HOME/bin" \
   --enable-ffplay \
   --enable-ffprobe \
   --enable-shared \
@@ -90,7 +89,7 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 
   $HOME/ffmpeg_build/lib/pkgconfig可以换成/usr/local/lib/pkgconfig
   4. 编译安装，`make -j8`,  `sudo make install`
-  5. 拷贝，`sudo cp /usr/local/ffmpeg/lib/lib* /usr/local/lib` ( 版本3不需要)
+  5. 拷贝，`sudo cp /usr/local/ffmpeg/lib/lib* /usr/local/lib`  ( 版本3不需要)，tx2拷贝 `sudo cp /usr/local/ffmpeg/lib/lib*/usr/lib/aarch64-linux-gnu/`
   6. 执行 `sudo ldconfig`。
   7. 验证，`ffmpeg -hwaccels`，出现cuvid（4.3.1版本显示cuda），表示成功
 
