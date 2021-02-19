@@ -100,5 +100,7 @@ ffmpeg -hwaccel cuvid -c:v h264_cuvid -i /home/huitou/test/testvideo/3.mp4 -c:v 
   注：
   1. ffmpeg关联的库在路径在/usr/lib/x86_64-linux-gnu内，如果安装过其他版本导致关联的库不对，则删除/usr/lib/x86_64-linux-gnu内相关文件，让ffmpeg关联/usr/local/lib内的库，执行sudo ldconfig，ldd ffmepg。
   2. 错误`ctx->cvdl->cuvidGetDecoderCaps(&ctx->caps8)`，重装显卡驱动，重启。
-  
+
+  ### 注
+1. 查看ubuntu是否自带x264和x265库，`ls /usr/lib/x86_64-linux-gnu/libx26* `
   
