@@ -14,7 +14,8 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 ## 卸载
 
 1. 进入编译目录，`sudo make uninstall`。
-2. `sudo rm -rf  /usr/local/share/ffmpeg  /usr/local/bin/ffmpeg  /usr/local/ffmpeg /usr/local/lib/libav* /usr/local/lib/libsw*   /usr/local/lib/libpost*`
+2. `sudo rm -rf  /usr/local/share/ffmpeg  /usr/local/bin/ffmpeg  /usr/local/ffmpeg /usr/local/lib/libav* /usr/local/lib/libsw*   /usr/local/lib/libpost* /usr/bin/ff*`
+3. nx  `sudo rm -rf  /usr/local/share/ffmpeg  /usr/local/bin/ffmpeg  /usr/local/ffmpeg /usr/local/lib/libav* /usr/local/lib/libsw*   /usr/local/lib/libpost* /usr/bin/ff* /usr/lib/aarch64-linux-gnu/libav* /usr/lib/aarch64-linux-gnu/libsw* /usr/lib/aarch64-linux-gnu/libpost*`
 
 ## 硬件加速编译
 
