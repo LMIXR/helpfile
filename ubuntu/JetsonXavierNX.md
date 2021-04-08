@@ -18,7 +18,7 @@
 
 1. 进入parted，`sudo parted /dev/nvme0n1`
 2. 将磁盘设置为gpt格式，`mklabel gpt`
-3. 将磁盘所有的容量设置为GPT格式，`mkpart logical 0 -1 `
+3. 将磁盘所有的容量设置为GPT格式，`mkpart logical 0 -1`
 4. 查看分区结果，`print`
 5. 退出parted，`quit`
 6. 进行分区，`sudo fdisk /dev/nvme0n1`，输入p如果已存在分区，则跳过
