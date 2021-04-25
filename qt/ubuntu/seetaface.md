@@ -5,7 +5,7 @@
 1. cmake 要求是3.14.5以上，apt安装的版本比这个低，需要先卸载sudo apt-get remove cmake。cmake版本低会显示缺少`CUDA_cublas_device_LIBRARY`。
 2. 下载cmake源码，`./bootstrap`, `make -j8`, `sudo make install`, `cmake --version`
 3. sudo vi ~/.bashrc, 最后添加 `export CMAKE_ROOT=/home/xxxx/cmake-3.14.5(cmake编译目录)`，
-     `export PATH=$PATH:$CMAKE_ROOT/bin`
+     `export PATH=$PATH:$CMAKE_ROOT/bin`(已在`/usr/local/bin/`中，可以不需要)
 
 ## 编译
 
