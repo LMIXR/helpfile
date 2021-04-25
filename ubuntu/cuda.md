@@ -27,3 +27,9 @@
 3. 是否安装成功 `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`
 4. 安装 `dpkg -i  libcudnn7_7.1.3.16-1+cuda9.1_amd64.deb`, `dpkg -i  libcudnn7-dev_7.1.3.16-1+cuda9.1_amd64.deb`
 
+## tensor rt
+
+1. 根据系统版本，cuda版本，cudnn版本下载，https://developer.nvidia.com/nvidia-tensorrt-6x-download，下载tar版本
+2. 解压，放到自己第三方库的位置
+3. 添加环境变量，`vim ~/.bashrc`，加入`export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/huitou/libs/TensorRT-6.0.1.5/lib`，保存`source ~/.bashrc`
+4. python安装，进入pythone目录，执行`python3 -m pip install tensorrt-6.0.1.5-cp36-none-linux_x86_64.whl`，根据pythone版本选择
