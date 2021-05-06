@@ -36,6 +36,7 @@
 2. 开机服务启动风扇，新建配置文件`sudo vi /etc/pwmfan`，添加可执行权限`sudo chmod a+x /etc/pwmfan`，插入如下内容
     ```sh
     #!/bin/sh
+    sleep 20
     sudo sh -c "echo 150 > /sys/devices/pwm-fan/target_pwm"
     ```
 3. 添加服务`sudo vi /etc/systemd/system/pwmfan.service`，添加可执行权限`sudo chmod a+x /etc/systemd/system/pwmfan.service`，开启服务`sudo systemctl daemon-reload`,`sudo systemctl enable pwmfan.service`插入如下内容
