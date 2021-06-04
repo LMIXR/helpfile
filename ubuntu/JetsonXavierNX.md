@@ -59,3 +59,10 @@
     WantedBy=multi-user.target
     ```
 4. 启动服务`sudo systemctl start pwmfan.service`
+
+## 设置模式
+
+1. 查询工作模式
+    `sudo nvpmodel --query`
+2. 设置工作模式
+    `sudo nvpmodel -m 0`
