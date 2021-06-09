@@ -10,3 +10,9 @@
     - sudo rm g++
     - sudo ln -s g++-5 g++
 3. 查看版本 gcc --version
+4. 还原
+    - cd /usr/bin
+    - sudo rm gcc
+    - sudo ln -s gcc-7 gcc
+    - sudo rm g++
+    - sudo ln -s g++-7 g++
