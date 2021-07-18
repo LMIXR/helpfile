@@ -4,20 +4,28 @@ After=network.target
  
 [Service]
 Type=forking
- 
-User=ubuntu ## tomcat目录到user
-Group=ubuntu ## tomcat目录到group
- 
-Environment="JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64" ##修改为你自己的jdk路径
+
+# tomcat目录到user
+User=ubuntu
+# tomcat目录到group
+Group=ubuntu
+
+# 修改为你自己的jdk路径
+Environment="JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64" 
 Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom -Djava.awt.headless=true"
- 
-Environment="CATALINA_BASE=/opt/apache-tomcat-8.5.43/" ##修改为你自己的tomcat路径
-Environment="CATALINA_HOME=/opt/apache-tomcat-8.5.43/" ##修改为你自己的tomcat路径
-Environment="CATALINA_PID=/opt/apache-tomcat-8.5.43/temp/tomcat.pid" ##修改为你自己的tomcat路径
+
+# 修改为你自己的tomcat路径
+Environment="CATALINA_BASE=/opt/apache-tomcat-8.5.43/"
+# 修改为你自己的tomcat路径
+Environment="CATALINA_HOME=/opt/apache-tomcat-8.5.43/"
+# 修改为你自己的tomcat路径
+Environment="CATALINA_PID=/opt/apache-tomcat-8.5.43/temp/tomcat.pid"
 Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
  
-ExecStart=/opt/apache-tomcat-8.5.43/bin/startup.sh  ##修改为你自己的tomcat路径
-ExecStop=/opt/apache-tomcat-8.5.43/bin/shutdown.sh ##修改为你自己的tomcat路径
+# 修改为你自己的tomcat路径
+ExecStart=/opt/apache-tomcat-8.5.43/bin/startup.sh
+# 修改为你自己的tomcat路径
+ExecStop=/opt/apache-tomcat-8.5.43/bin/shutdown.sh
  
 [Install]
 WantedBy=multi-user.target
