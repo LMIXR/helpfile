@@ -5,10 +5,8 @@ After=network.target
 [Service]
 Type=forking
 
-# tomcat目录到user
-User=ubuntu
-# tomcat目录到group
-Group=ubuntu
+User=root
+Group=root
 
 # 修改为你自己的jdk路径
 Environment="JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64" 
