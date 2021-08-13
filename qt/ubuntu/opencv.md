@@ -55,9 +55,11 @@ sudo rm -r /usr/local/lib/cmake/opencv4
 
 注：
 1. 提示缺少nvcuvid.h，下载Video_Codec_SDK，将interface下的文件拷贝到/usr/include下，/Lib/linux/stubs/x86_64下的文件拷贝到/usr/lib/x86_64-linux-gnu/下，如果不拷贝，没有WITH_NVCUVID选项
-2. 提示缺少boostdesc_bgm.i，下载相关文件放到opencv_contrib-4.2.0/modules/xfeatures2d/src下面
+2. 提示缺少boostdesc_bgm.i，下载相关文件放到opencv_contrib-4.2.0/modules/xfeatures2d/src下面，如果不起作用，修改opencv_contrib-4.2.0/modules/xfeatures2d/cmake下的两个文件，将访问地址修改成file:///home/usrname/install/
 3. 下载ippicv，https://github.com/opencv/opencv_3rdparty/tree/ippicv/master_20180723/ippicv，ippicv_2019_lnx_intel64_general_20180723.tgz，放在home目录/home/ubuntu/install，编辑/opencv/3rdparty/ippicv/ippicv.cmake，将47行换成可以访问的地址，如file:///home/usrname/install/
 4. 下载face_landmark_model.dat，https://raw.githubusercontent.com/opencv/opencv_3rdparty/8afa57abc8229d611c4937165d20e2a2d9fc5a12/face_landmark_model.dat， 放在home目录/home/ubuntu/install，修改opencv_contrib-3.4.0/modules/face/CMakeLists.txt，访问地址换成file:///home/usrname/install/
 5. 提示缺少nvOpticalFlowCommon.h，下载https://github.com/NVIDIA/NVIDIAOpticalFlowSDK，放到/usr/include下
 6. CUDA_ARCH_BIN 删除5.3以下的
 7. 如果把Video_Codec_SDK内容复制到/usr/local/cuda/lib64和/usr/local/cuda/include中，ffmpeg会出现错误`ctx->cvdl->cuvidGetDecoderCaps(&ctx->caps8)`
+8. 升级cuda后，注意cuda目录是否修改。
+9. 提示缺少fatal error: features2d/test/test_detectors_regression.impl.hpp: No such file or directory，将opencv / modules / features2d复制到opencv/build目录。
