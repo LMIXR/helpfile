@@ -6,6 +6,7 @@
 2. 下载cmake源码，`./bootstrap`, `make -j8`, `sudo make install`, `cmake --version`
 3. sudo vi ~/.bashrc, 最后添加 `export CMAKE_ROOT=/home/xxxx/cmake-3.14.5(cmake编译目录)`，
      `export PATH=$PATH:$CMAKE_ROOT/bin`(已在`/usr/local/bin/`中，可以不需要)
+4. 内网编译，没有openssl，修改CMakeLists.txt，文件顶部加入set(CMAKE_USE_OPENSSL OFF)
 
 ## 编译
 

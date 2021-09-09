@@ -11,4 +11,4 @@
     - flush privileges;
     - quit;
 4. 重启mysql sudo service mysql restart
-5. 开启远程， `sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf`,将bind-address行注释掉。进入mysql，`grant all privileges on *.* to 'root'@'%' identified by '123456' with grant option;`,重启mysql。
+5. 开启远程， `sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf`,将bind-address行注释掉。进入mysql，`grant all privileges on *.* to 'root'@'%' identified by '123456' with grant option;`,`flush privileges`,重启mysql。

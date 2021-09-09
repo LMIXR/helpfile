@@ -121,8 +121,8 @@ PrivateTmp=true
 [Install]  
 WantedBy=multi-user.target
 ```
-10. 启动服务，`sudo systemctl daemon-reload`, `sudo systemctl enable mongod`, `sudo systemctl start mongod`
+10. 启动服务，`sudo systemctl daemon-reload`, `sudo systemctl enable mongod.service`, `sudo systemctl start mongod.service`
 11. 查看版本, `mongod --version`
-12. 设置远程访问, 查看端口状态，`lsof -i:27017`, 显示localhost:27017说明不能远程访问，修改配置文件 `sudo vi /etc/mongod.conf`,
+12. 设置远程访问, 查看端口状态，`sudo lsof -i:27017`, 显示localhost:27017说明不能远程访问，修改配置文件 `sudo vi /etc/mongod.conf`,
     修改bind_ip=0.0.0.0，或者根据需求填入ip，重启服务
 13. 如提示缺少net-snmp，安装`sudo apt-get install snmp snmpd`
