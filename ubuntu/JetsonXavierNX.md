@@ -66,3 +66,15 @@
     `sudo nvpmodel --query`
 2. 设置工作模式
     `sudo nvpmodel -m 0`
+
+## VNC
+
+1. 安装 `sudo apt update`, `sudo apt install vino`
+2. 配置VNC server
+    - `gsettings set org.gnome.Vino prompt-enabled false`
+    - `gsettings set org.gnome.Vino require-encryption false`
+    - `gsettings set org.gnome.Vino authentication-methods "['vnc']"`
+    - `gsettings set org.gnome.Vino vnc-password $(echo -n '12345678'|base64)`
+3. 重启 `sudo reboot`
+4. 启动 ssh下 `/usr/lib/vino/vino-server --display=:0`
+

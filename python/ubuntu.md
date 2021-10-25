@@ -46,3 +46,8 @@ torchaudio==0.9.1
 ### 源码setup安装
 1. sudo python3 setup.py install
 
+### 注意
+
+1. pip3 install 加于不加sudo安装位置不一样，当不用sudo安装时位置在/home/yons/.local/lib/python3.6/site-packages中，
+    加上sudo位置在/usr/local/lib/python3.6/dist-packages中，如果是需要配成服务，不加sudo安装，会找不到包。
+
