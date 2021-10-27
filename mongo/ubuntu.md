@@ -45,7 +45,13 @@ fork=true
  
 # 数据库文件位置
 dbpath=/var/lib/mongodb
- 
+
+# 解除ip绑定 
+bind_ip=0.0.0.0
+
+# 限制缓存大小
+wiredTigerCacheSizeGB=2
+
 # 启用定期记录CPU利用率和 I/O 等待
 # cpu = true
  
