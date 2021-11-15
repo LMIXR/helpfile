@@ -46,6 +46,16 @@ torchaudio==0.9.1
 ### 源码setup安装
 1. sudo python3 setup.py install
 
+### 查看whl依赖包
+1. sudo pip3 install pkginfo
+2. pkginfo -f requires_dist ***.whl
+
+### 查看已安装
+1. pip3 list | grep ****
+
+### 卸载
+1. pip3 uninstall ****
+
 ### 注意
 
 1. pip3 install 加于不加sudo安装位置不一样，当不用sudo安装时位置在/home/yons/.local/lib/python3.6/site-packages中，

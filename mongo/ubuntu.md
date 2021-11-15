@@ -15,8 +15,8 @@
 
     创建用户和数据库
     - `use htmonitor`
-    - `db.createUser({user: "htadmin", pwd: "Bjht12345678", roles: [{ role: "dbOwner", db: "htmonitor" }]})`
-    - `db.auth("htadmin","Bjht12345678")` 
+    - `db.createUser({user: "lsadmin", pwd: "Bjht12345678", roles: [{ role: "dbOwner", db: "lsmonitor" }]})`
+    - `db.auth("lsadmin","Bjht12345678")` 
 3. 重启mongo `systemctl start mongod`
 4. 添加防火墙端口 `firewall-cmd --permanent --add-port=27017/tcp`, `firewall-cmd --query-port=27017/tcp`, `firewall-cmd --reload`
 
@@ -133,3 +133,11 @@ WantedBy=multi-user.target
 12. 设置远程访问, 查看端口状态，`sudo lsof -i:27017`, 显示localhost:27017说明不能远程访问，修改配置文件 `sudo vi /etc/mongod.conf`,
     修改bind_ip=0.0.0.0，或者根据需求填入ip，重启服务
 13. 如提示缺少net-snmp，安装`sudo apt-get install snmp snmpd`
+
+## 导出导入
+
+### 导出
+mongoexport
+
+### 导入
+mongoimport
