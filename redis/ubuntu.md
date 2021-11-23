@@ -10,6 +10,10 @@
 1. `sudo vi /etc/redis/redis.conf`，修改 `appendonly yes`。
 2. 重启 `sudo systemctl restart redis.service`
 
+## 关闭持久化
+
+1. 找到`save 900 1`,`save 300 10`,`save 60 10000`都注释掉，开启`save ""`
+2. 持久化文件`dbfilename dump.rdb`,`dir ./`
 
 ## 离线安装
 
