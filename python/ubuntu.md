@@ -14,7 +14,7 @@
 
 1. 解压 `tar -zxvf xz-5.2.3.tar.gz`
 2. 创建目录 `mkdir xz`
-3. 编译 `cd xz-5.2.3`, `./configure --prefix=./xz`, `make -j8`, `make install`
+3. 编译 `cd xz-5.2.3`, `./configure --prefix=/home/yons/setup/python/xz`, `make -j8`, `make install`
 
 ### python3
 
@@ -24,7 +24,7 @@
 4. (可选)开启openssl, `sudo vi Modules/Setup`, 搜索ssl，删除注释 SSL以下4行
 5. 编译 `cd /usr/local/python-3.6.9`, `sudo ./configure`，`sudo make -j8`, `sudo make install`
 6. 检查是否安装成功 `python3`, 检查ssl是否开启，进入python，`import ssl`
-7. 添加xz，编译时指定xz，`./configure LDFLAGS="-L/**/xz/lib" CPPFLAGS="-I/**/xz/include"`
+7. 添加xz，编译时指定xz，`sudo ./configure LDFLAGS="-L/home/yons/setup/python/xz/lib" CPPFLAGS="-I/home/yons/setup/python/xz/include"`
 
 ### pip3
 
