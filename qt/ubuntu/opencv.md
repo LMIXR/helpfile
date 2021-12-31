@@ -49,7 +49,7 @@ sudo rm -r /usr/local/lib/cmake/opencv4
     - sudo apt install libjasper1 libjasper-dev
 4. 安装cmake-gui，`sudo apt-get install cmake-qt-gui`，打开`cmake-gui`。
 5. `Where is the source code` 选择opencv目录，  新建build目录，`Where is build the binaries`选择build目录，点击configure。
-6. OPENCV_GENERATE_PKGCONFIG勾选，CMAKE_BUILD_TYPE填写Release，OPENCV_EXTRA_MODULES_PATH填写/home/huitou/tools/opencv_contrib-4.2.0/modules目录，(如果有错误添加编译选项CMAKE_C_COMPILER=/usr/bin/gcc-7)，BUILD_opencv_world勾选（暂时没加，编译不过）。支持cuda，勾选WITH_CUDA ，OPENCV_DNN_CUDA，WITH_NVCUVID(没有自己加上)，OPENCV_ENABLE_NONFREE，去掉WITH_ADE，
+6. OPENCV_GENERATE_PKGCONFIG勾选，CMAKE_BUILD_TYPE填写Release，OPENCV_EXTRA_MODULES_PATH填写/home/huitou/tools/opencv_contrib-4.2.0/modules目录，(如果有错误添加编译选项CMAKE_C_COMPILER=/usr/bin/gcc-7)，BUILD_opencv_world勾选（暂时没加，编译不过）。支持cuda，勾选WITH_CUDA ，OPENCV_DNN_CUDA，WITH_NVCUVID(如果正常，点击Generate后会自动生成)，OPENCV_ENABLE_NONFREE，去掉WITH_ADE，
 如果需要gstramer，勾选WITH_GSTREAMER
 7. 点击generate生产makefile文件，进入build目录，make -j8，sudo make install
 
@@ -59,7 +59,9 @@ sudo rm -r /usr/local/lib/cmake/opencv4
 3. 下载ippicv，https://github.com/opencv/opencv_3rdparty/tree/ippicv/master_20180723/ippicv，ippicv_2019_lnx_intel64_general_20180723.tgz，放在home目录/home/ubuntu/install，编辑/opencv/3rdparty/ippicv/ippicv.cmake，将47行换成可以访问的地址，如file:///home/usrname/install/
 4. 下载face_landmark_model.dat，https://raw.githubusercontent.com/opencv/opencv_3rdparty/8afa57abc8229d611c4937165d20e2a2d9fc5a12/face_landmark_model.dat， 放在home目录/home/ubuntu/install，修改opencv_contrib-3.4.0/modules/face/CMakeLists.txt，访问地址换成file:///home/usrname/install/
 5. 提示缺少nvOpticalFlowCommon.h，下载https://github.com/NVIDIA/NVIDIAOpticalFlowSDK，放到/usr/include下
-6. CUDA_ARCH_BIN 删除5.3以下的
+6. CUDA_ARCH_BIN 删除5.3以下的，根据最新显卡算力修改数值，点击Generate后才能看到
 7. 如果把Video_Codec_SDK内容复制到/usr/local/cuda/lib64和/usr/local/cuda/include中，ffmpeg会出现错误`ctx->cvdl->cuvidGetDecoderCaps(&ctx->caps8)`
 8. 升级cuda后，注意cuda目录是否修改。
 9. 提示缺少fatal error: features2d/test/test_detectors_regression.impl.hpp: No such file or directory，将opencv / modules / features2d复制到opencv/build目录。
+10. WITH_NVCUVID 不能自动生成：修改OpenCVDetectCUDA.cmake，添加路径，参考https://blog.csdn.net/ywxuan/article/details/113799951?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-4.no_search_link&spm=1001.2101.3001.4242.3
+11. 错误fatal error: dynlink_nvcuvid.h，修改报错文件，注释掉dynlink_nvcuvid.h，使用nvcuvid.h
