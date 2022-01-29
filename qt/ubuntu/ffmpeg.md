@@ -44,7 +44,7 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 3. 配置，`PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/ffmpeg_bin" --enable-shared`
 4. 编译安装，`make -j8`,  `sudo make install`
 5. `./configure  --enable-shared`重新编译安装，ffmpeg需要用到(或者直接复制lib库到)(过时，指定PKG则不需要)
-
+6. 使用152版本，rtsp推流需要使用此版本。
 
 ### 编译libx265
 
@@ -54,7 +54,7 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 4. 编译安装，`make -j8`,  `sudo make install`
 5. 若报错,将make-Makefiles.bash中的ccmake改为cmake
 6. `cmake -G "Unix Makefiles"  -DENABLE_SHARED:bool=on ../../source`重新编译安装，ffmpeg需要用到(或者直接复制lib库到)(过时，指定PKG则不需要)
-7. 使用152版本
+
 
 ### 编译ffnvcodec
 

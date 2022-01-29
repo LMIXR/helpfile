@@ -19,8 +19,11 @@
       -DWITH_GPU=ON  \
       -DON_INFER=ON \
       -DWITH_NCCL=OFF \
+      -WITH_TENSORRT=ON\
       ..
     - ulimit -n 2048
     - make -j4
     - make inference_lib_dist
 3. build/paddle_inference_install_dir便是生成的库
+
+
