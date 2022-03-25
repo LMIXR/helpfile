@@ -13,7 +13,7 @@
     - `db.createUser({user:"admin",pwd:"Bjht12345678",roles: [{role:"userAdminAnyDatabase", db: "admin" }]})`
     - `db.auth("admin","Bjht12345678")` 
 
-    创建用户和数据库
+    创建用户和数据库，需要先用admin登录
     - `use htmonitor`
     - `db.createUser({user: "lsadmin", pwd: "Bjht12345678", roles: [{ role: "dbOwner", db: "lsmonitor" }]})`
     - `db.auth("lsadmin","Bjht12345678")` 
