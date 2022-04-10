@@ -21,6 +21,7 @@
 2. 解压到 /usr/local/tomcat8
 3. 启动 /usr/local/tomcat8/bin/startup.sh 
 4. 安装curl`sudo apt install -y curl`，检测curl 127.0.0.1:8080
+5. 注意修改权限，bin/startup.sh，bin/shotdown.sh，bin/catalina.sh
 
 ## 16.04自启动
 
@@ -36,6 +37,7 @@
 2. 参考tomcat.serice修改配置文件。
 3. 通知有新服务`sudo systemctl daemon-reload`。
 4. 启动`sudo systemctl start tomcat`，查看状态`sudo systemctl status tomcat`，启用`sudo systemctl enable tomcat`。
+5. 注意修改bin目录几个文件的权限
 
 ## tx2 18.04
 
