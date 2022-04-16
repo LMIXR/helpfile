@@ -7,7 +7,7 @@
 3. 修改root密码
     - use mysql;
     - update mysql.user set authentication_string=password('Bjht12345678@') where user='root' and Host ='localhost';
-    - update user set  plugin="mysql_native_password";
+    - update user set plugin="mysql_native_password";
     - flush privileges;
     - quit;
 4. 重启mysql sudo service mysql restart

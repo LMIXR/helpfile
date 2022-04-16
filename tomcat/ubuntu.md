@@ -1,6 +1,6 @@
-# Linux
+# ubuntu
 
-## JDK安装
+## JDK离线安装
 
 1. 上传安装包 jdk-8u231-linux-x64.tar.gz
 2. 解压到/usr/local/jdk1.8.0_231
@@ -11,7 +11,7 @@
 4. 生效环境变量 source /etc/profile
 5. 检查 java -version
 
-## 在线安装
+## JDK在线安装
 
 1. sudo apt-get install openjdk-8-jdk
 2. 安装目录在 /usr/lib/jvm/
