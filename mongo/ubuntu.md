@@ -17,7 +17,7 @@
     - `use lsmonitor`
     - `db.createUser({user: "lsadmin", pwd: "Bjht12345678", roles: [{ role: "dbOwner", db: "lsmonitor" }]})`
     - `db.auth("lsadmin","Bjht12345678")` 
-3. 重启mongo `systemctl start mongod`
+3. 重启mongo `systemctl restart mongod`
 4. 添加防火墙端口 `firewall-cmd --permanent --add-port=27017/tcp`, `firewall-cmd --query-port=27017/tcp`, `firewall-cmd --reload`
 
 ## 卸载
