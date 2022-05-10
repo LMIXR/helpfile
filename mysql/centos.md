@@ -1,6 +1,6 @@
 # centos
 
-## 安装
+## 安装mysql8.0
 
 1. `wget https://dev.mysql.com/get/mysql80-community-release-el7-2.noarch.rpm`
 2. `sudo yum localinstall mysql80-community-release-el7-2.noarch.rpm`

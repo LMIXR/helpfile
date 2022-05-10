@@ -1,6 +1,6 @@
 # ffmpeg
 
-# 编译
+## 编译
 
 1. 下载源代码
 2. `./configure --prefix=/usr/local/ffmpeg  --disable-x86asm --enable-shared`
@@ -105,4 +105,10 @@ ffmpeg -hwaccel cuvid -c:v h264_cuvid -i /home/huitou/test/testvideo/3.mp4 -c:v 
 
   ### 注
 1. 查看ubuntu是否自带x264和x265库，`ls /usr/lib/x86_64-linux-gnu/libx26* `
+
+
+## 在线安装
+
+1. 如果常规安装方法，提示某些组件无法下载，需要更换ubuntu源为aliyun的源
+2. 
   
