@@ -26,10 +26,17 @@
 6. 检查是否安装成功 `python3`, 检查ssl是否开启，进入python，`import ssl`
 7. 添加xz，编译时指定xz，`sudo ./configure LDFLAGS="-L/home/yons/setup/python/xz/lib" CPPFLAGS="-I/home/yons/setup/python/xz/include"`
 
+### python3 在线安装
+
+1. `sudo apt install python3.7`
+2. 多版本设置 `echo alias python=python3.7 >> ~/.bashrc`, `source ~/.bashrc`
+3. 
+
 ### pip3
 
 1. Python-3.6.9已经安装
-
+2. 在线安装 `sudo apt install python3-pip`
+3. 升级 `sudo pip3 install --upgrade pip`
 ## pip
 
 ### 下载whl文件，以pytorch为例子
@@ -55,6 +62,9 @@ torchaudio==0.9.1
 
 ### 卸载
 1. pip3 uninstall ****
+
+### 查看pip安装路径
+1. python3 -m site
 
 ### 注意
 
