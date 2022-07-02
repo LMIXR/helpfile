@@ -48,3 +48,8 @@
     - `sudo systemctl daemon-reload`
     - `sudo systemctl enable redis.service`
     - `sudo systemctl start redis.service`
+
+## 命令
+
+1. 清空一个数据库的内容 `redis-cli -n 0 flushdb`
+2. 删除所有数据 `redis-cli flushall`
