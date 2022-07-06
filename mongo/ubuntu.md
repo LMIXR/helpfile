@@ -29,7 +29,7 @@
 3. 移动到文件 /usr/local/mongodb, `sudo mv mongodb-** /usr/local/mongodb`
 4. 创建数据保存目录 /var/lib/mongodb, `sudo mkdir -p /var/lib/mongodb`
 5. 创建日志文件目录 /var/log/mongodb, `sudo mkdir -p /var/log/mongodb`
-6. 创建配置文件 /etc/mongodb.conf `sudo vi /etc/mongodb.conf`,写入配置。
+6. 创建配置文件 /etc/mongodb.conf `sudo vi /etc/mongodb.conf`,写入配置, 4.x版本
 ``` shell 
 # 日志文件位置
 logpath=/var/log/mongodb/mongodb.log
@@ -133,7 +133,11 @@ WantedBy=multi-user.target
 12. 设置远程访问, 查看端口状态，`sudo lsof -i:27017`, 显示localhost:27017说明不能远程访问，修改配置文件 `sudo vi /etc/mongod.conf`,
     修改bind_ip=0.0.0.0，或者根据需求填入ip，重启服务
 13. 如提示缺少net-snmp，安装`sudo apt-get install snmp snmpd`
-
+14. 限制内存，在5.x版本中如下修改
+    storage中的wiredTiger取消注释，修改如下
+    wiredTiger:
+      engineConfig:
+        configString : cache_size=512M
 ## 导出导入
 
 ### 导出
