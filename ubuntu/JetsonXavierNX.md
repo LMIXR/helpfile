@@ -1,5 +1,9 @@
 # Jetson Xavier NX
 
+## 下载系统
+
+1. `https://developer.nvidia.com/zh-cn/embedded/jetpack`, `https://developer.nvidia.com/embedded/downloads`
+
 ## 复制SD卡内容NVMe
 
 ### 界面操作

@@ -37,7 +37,7 @@
 2. 参考tomcat.serice修改配置文件。
 3. 通知有新服务`sudo systemctl daemon-reload`。
 4. 启动`sudo systemctl start tomcat`，查看状态`sudo systemctl status tomcat`，启用`sudo systemctl enable tomcat`。
-5. 注意修改bin目录几个文件的权限
+5. 注意修改bin目录几个文件的权限, chmod a+x  *.sh
 
 ## tx2 18.04
 
