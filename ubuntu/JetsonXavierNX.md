@@ -82,3 +82,7 @@
 3. 重启 `sudo reboot`
 4. 启动 ssh下 `/usr/lib/vino/vino-server --display=:0`
 
+## 挂在存储
+
+1. 临时挂载 `sudo mount /dev/nvme0n1p1 /media/nvme/`
+2. 开机自动挂在, 修改配置文件`sudo vi /etc/fstab`

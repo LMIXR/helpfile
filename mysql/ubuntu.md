@@ -32,6 +32,8 @@
 
 1. `sudo apt-get remove --purge mysql-\*`
 2. `sudo apt-get autoremove --purge mysql-server`
+3. `sudo rm /var/lib/mysql*/ -R`
+4. `sudo rm /etc/mysql/ -R`
 
 ## 离线安装
 
