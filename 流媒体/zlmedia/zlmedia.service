@@ -6,6 +6,8 @@ After=syslog.target network.target remote-fs.target nss-lookup.target
 Type=forking
 ExecStart=/opt/mediaserver/zlmedia/start.sh
 ExecStop=/opt/mediaserver/zlmedia/stop.sh
+Restart=on-failure
+RestartSec=5s
 PrivateTmp=true
 
 [Install]

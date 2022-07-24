@@ -12,3 +12,10 @@
 ## 查看版本
 
 1. `python3`,`import torch`, `torch.__version__`
+
+
+## libtorch
+
+### 安装
+
+1. 下载`https://pytorch.org/get-started/locally/`, 选择一个版本得到连接,然后根据自己电脑的版本修改连接内容下载即可
