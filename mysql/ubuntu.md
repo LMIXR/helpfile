@@ -36,7 +36,27 @@
 3. `sudo rm /var/lib/mysql*/ -R`
 4. `sudo rm /etc/mysql/ -R`
 
-## 离线安装
+## arm离线安装
+
+1. 下载
+    - `wget http://launchpadlibrarian.net/503346130/mysql-server-5.7_5.7.32-0ubuntu0.18.04.1_arm64.deb`
+    - `wget  http://launchpadlibrarian.net/503346131/mysql-server-core-5.7_5.7.32-0ubuntu0.18.04.1_arm64.deb`
+    - `wget http://launchpadlibrarian.net/355862128/libevent-core-2.1-6_2.1.8-stable-4build1_arm64.deb`
+    - `wget http://launchpadlibrarian.net/503346130/mysql-server-5.7_5.7.32-0ubuntu0.18.04.1_arm64.deb`
+    - `wget http://launchpadlibrarian.net/355861262/libevent-core-2.1-6_2.1.8-stable-4build1_arm64.deb`
+    - `wget http://launchpadlibrarian.net/503346128/mysql-client-5.7_5.7.32-0ubuntu0.18.04.1_arm64.deb`
+    - `wget http://launchpadlibrarian.net/503346129/mysql-client-core-5.7_5.7.32-0ubuntu0.18.04.1_arm64.deb`
+2. 缺少common文件,下载`sudo apt download mysql-common`
+3. 安装
+    - `apt-get -y install libaio1`
+    - `apt-get -y install libmecab2`
+    - `dpkg -i ./mysql-client-core-5.7_5.7.36-0ubuntu0.18.04.1_arm64.deb`
+    - `dpkg -i ./mysql-client-5.7_5.7.36-0ubuntu0.18.04.1_arm64.deb`
+    - `dpkg -i ./mysql-server-core-5.7_5.7.36-0ubuntu0.18.04.1_arm64.deb`
+    - `dpkg -i ./libevent-core-2.1-6_2.1.8-stable-4build1_arm64.deb`
+    - `dpkg -i ./mysql-server-5.7_5.7.36-0ubuntu0.18.04.1_arm64.deb`
+
+## x86离线安装
 
 1. 下载离线包，`https://dev.mysql.com/downloads/mysql/`
 2. 解压 `tar -xf mysql-server_8.0.27-1ubuntu18.04_amd64.deb-bundle.tar`
