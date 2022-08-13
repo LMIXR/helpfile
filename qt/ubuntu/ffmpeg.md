@@ -110,5 +110,7 @@ ffmpeg -hwaccel cuvid -c:v h264_cuvid -i /home/huitou/test/testvideo/3.mp4 -c:v 
 ## 在线安装
 
 1. 如果常规安装方法，提示某些组件无法下载，需要更换ubuntu源为aliyun的源
-2. 
-  
+
+## 命令
+
+1. 保存rtsp到文件 `ffmpeg -y -i rtsp://admin:hik12345@192.168.1.164:554/Streaming/Channels/101 -vcodec copy -f mp4 *.mp4`
