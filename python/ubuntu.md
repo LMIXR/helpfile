@@ -51,7 +51,8 @@ torchaudio==0.9.1
 5. whl下载网站https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/****/
 
 ### 源码setup安装
-1. sudo python3 setup.py install
+1. sudo python3 setup.py install  --record files.txt
+2. 卸载 cat files.txt | xargs rm -rf
 
 ### 查看whl依赖包
 1. sudo pip3 install pkginfo
