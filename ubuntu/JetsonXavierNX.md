@@ -17,6 +17,7 @@
     - `./copy-rootfs-ssd.sh`
     - `./setup-service.sh`
     - `reboot`
+5. 取消操作,删除删除sd卡/etc/setssdroot.conf文件
 
 ### 命令行操作
 
