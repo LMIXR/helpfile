@@ -64,6 +64,9 @@ torchaudio==0.9.1
 ### 卸载
 1. pip3 uninstall ****
 
+### 安装制定版本
+1. pip3 installl xxx==x.x
+
 ### 查看pip安装路径
 1. python3 -m site
 

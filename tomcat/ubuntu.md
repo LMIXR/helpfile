@@ -2,7 +2,7 @@
 
 ## JDK离线安装
 
-1. `https://download.oracle.com/otn/java/jdk/8u351-b10/10e8cce67c7843478f41411b7003171c/jdk-8u351-linux-x64.tar.gz?AuthParam=1668135669_d38469af7f19e09ed7125202efd61c90`, 上传安装包 jdk-8u231-linux-x64.tar.gz
+1. `https://www.oracle.com/cn/java/technologies/downloads/#jdk20-windows`, 上传安装包 jdk-8u231-linux-x64.tar.gz
 2. 解压到/usr/local/jdk1.8.0_231
 3. 配置环境变量 vi /etc/profile，添加 
     export JAVA_HOME=/usr/local/jdk1.8.0_231

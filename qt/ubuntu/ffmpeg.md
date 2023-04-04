@@ -55,7 +55,6 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 5. 若报错,将make-Makefiles.bash中的ccmake改为cmake
 6. `cmake -G "Unix Makefiles"  -DENABLE_SHARED:bool=on ../../source`重新编译安装，ffmpeg需要用到(或者直接复制lib库到)(过时，指定PKG则不需要)
 
-
 ### 编译ffnvcodec
 
 1. 下载， `git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git`

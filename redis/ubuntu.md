@@ -44,12 +44,16 @@
 6. 创建redis用户、组和目录
     - 创建redis用户和组, `sudo adduser --system --group --no-create-home redis`
     - 创建数据库目录, `sudo mkdir /var/lib/redis`, `sudo chown redis:redis /var/lib/redis`, ` sudo chmod 770 /var/lib/redis`
-    - 创建日志目录，`sudo mkdir /var/log/redis`
+    - 创建日志目录，`sudo mkdir /var/log/redis`，`sudo chown redis:redis /var/log/redis`, ` sudo chmod 770 /var/log/redis`
 7. 启动服务
     - `sudo systemctl daemon-reload`
     - `sudo systemctl enable redis.service`
     - `sudo systemctl start redis.service`
 6. 打包，需要`redis-server`,`redis.conf`, `libjemalloc.so.1`
+
+## 离线安装dep
+1. 下载 `apt-get download $(apt-cache depends --recurse --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances --no-pre-depends redis-server | grep -v amd64 | grep "^\w")`
+2. 安装 `sudo dpkg -i *.deb`
 
 ## 命令
 
