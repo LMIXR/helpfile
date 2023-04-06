@@ -61,10 +61,10 @@
 1. 下载离线包，`https://dev.mysql.com/downloads/mysql/`,
    下载libaio1`http://archive.ubuntu.com/ubuntu/pool/main/liba/libaio/libaio1_0.3.110-2_amd64.deb`,
    下载libmecab2`http://archive.ubuntu.com/ubuntu/pool/universe/m/mecab/libmecab2_0.996-1.2ubuntu1_amd64.deb`
-2. 解压 `tar -xf mysql-server_8.0.27-1ubuntu18.04_amd64.deb-bundle.tar`
+2. 解压 `tar -xf mysql-server_5.7.38-1ubuntu18.04_amd64.deb-bundle.tar`
 3. 依次安装
-    - `sudo apt-get install libaio1` 
-    - `sudo apt-get install libmecab2`
+    - `sudo dpkg -i libaio1_0.3.110-2_amd64.deb` 
+    - `sudo dpkg -i libmecab2_0.996-1.2ubuntu1_amd64.deb`
     - `sudo dpkg -i mysql-common_5.7.38-1ubuntu18.04_amd64.deb `
     - `sudo dpkg -i libmysqlclient20_5.7.38-1ubuntu18.04_amd64.deb`
     - `sudo dpkg -i libmysqlclient-dev_5.7.38-1ubuntu18.04_amd64.deb`
