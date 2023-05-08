@@ -16,3 +16,22 @@
     - `ALTER USER 'root'@'localhost' IDENTIFIED BY 'Bjht12345678@' PASSWORD EXPIRE NEVER;`
     - `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';`
     - `FLUSH PRIVILEGES;`
+
+
+## 离线安装mysql5.7
+
+1. 下载离线包，`https://dev.mysql.com/downloads/mysql/`,
+2. 下载perl,并离线安装.
+3. 卸载mariadb相关 `rpm -e --nodeps mariadb-libs`
+4. 安装
+        - `rpm -ivh mysql-community-common-5.7.38-1.el7.x86_64.rpm`
+       - `rpm -ivh mysql-community-libs-5.7.38-1.el7.x86_64.rpm`
+       - `rpm -ivh mysql-community-devel-5.7.38-1.el7.x86_64.rpm`
+       - `rpm -ivh mysql-community-libs-compat-5.7.38-1.el7.x86_64.rpm`
+       - `rpm -ivh mysql-community-client-5.7.38-1.el7.x86_64.rpm`
+       - `rpm -ivh mysql-community-server-5.7.38-1.el7.x86_64.rpm`
+5. 启动服务`service mysqld start`
+6. 查看默认密码 `grep 'temporary password' /var/log/mysqld.log`，启动后才有
+7. 进入mysql`mysql -uroot -p`，输入刚才的密码
+8. 修改密码`ALTER USER 'root'@'localhost' IDENTIFIED BY 'Bjht12345678@';`
+9. 退出`quit`，重启`sudo service mysqld restart`
