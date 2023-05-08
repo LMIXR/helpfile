@@ -2,7 +2,7 @@
 
 ## 安装
 
-1. cuda官网，选择`runfile方式`, `sudo sh *.run`
+1. cuda官网，`https://developer.nvidia.com/cuda-toolkit-archive`, 选择`runfile方式`, `sudo sh *.run`
 2. 开始安装，不选择驱动，然后点击install。
 3. 根据安装后的提示编辑 `sudo vi ~/.bashrc`，加入 `export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.1/lib64`
 `export PATH=$PATH:/usr/local/cuda-10.1/bin`, 生效`source ~/.bashrc`。
@@ -34,7 +34,7 @@
 
 ## tensor rt
 
-1. 根据系统版本，cuda版本，cudnn版本下载，https://developer.nvidia.com/nvidia-tensorrt-6x-download，下载tar版本
+1. 根据系统版本，cuda版本，cudnn版本下载，  ，下载tar版本
 2. 解压，放到自己第三方库的位置
 3. 添加环境变量，`vim ~/.bashrc`，加入`export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/huitou/libs/TensorRT-6.0.1.5/lib`，保存`source ~/.bashrc`
 4. python安装，进入pythone目录，执行`python3 -m pip install tensorrt-6.0.1.5-cp36-none-linux_x86_64.whl`，根据pythone版本选择
