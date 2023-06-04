@@ -116,11 +116,11 @@ wiredTigerCacheSizeGB=2
 ``` shell
 [Unit]  
 Description=mongodb  
-After=network.target remote-fs.target nss-lookup.target  
+After=network.target remote-fs.target nss-lookup.target
   
 [Service]  
 Type=forking  
-ExecStart=/usr/local/mongodb/bin/mongod --config /etc/mongodb.conf  
+ExecStart=/usr/local/mongodb/bin/mongod --config /etc/mongodb.conf
 ExecReload=/bin/kill -s HUP $MAINPID  
 ExecStop=/usr/local/mongodb/bin/mongod --shutdown --config /etc/mongodb.conf
 PrivateTmp=true  
