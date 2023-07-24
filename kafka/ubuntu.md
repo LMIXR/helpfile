@@ -48,3 +48,33 @@ WantedBy=multi-user.target
 7. 网络配置 config/server.properties
     - 内网 配置listeners = PLAINTEXT://your.host.name:9092
     - 外网 listeners=SASL_SSL://内网IP:内网端口 advertised.listeners=SASL_SSL://外网IP:外网端口
+
+8. 配置用户名密码访问
+    - config/server.properties 添加
+    ``` shell
+    #使用的认证协议（SASL_PLAINTEXT：动态增加用户协议，PLAINTEXT 不能动态增加用户）
+    security.inter.broker.protocol=SASL_PLAINTEXT
+
+    #SASL机制
+    sasl.enabled.mechanisms=PLAIN
+    sasl.mechanism.inter.broker.protocol=PLAIN
+
+    #完成身份验证的类
+    authorizer.class.name=kafka.security.authorizer.AclAuthorizer
+
+    #如果没有找到ACL（访问控制列表）配置，则允许任何操作。
+    allow.everyone.if.no.acl.found=true
+    ```
+    - 创建目录pass，新建文件kafka_server_jaas.conf
+    ``` shell
+    KafkaServer {
+        org.apache.kafka.common.security.plain.PlainLoginModule required
+            username="admin"
+            password="DxxZLgOh"
+            user_producer="AvRxw69t"
+            user_consumer="2HLCMSxZ";
+    };
+    ```
+    - bin/kafka-server-start.sh
+        exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka "$@" 修改成
+        exec $base_dir/kafka-run-class.sh $EXTRA_ARGS -Djava.security.auth.login.config=/root/service/kafka_2.13-3.5.0/pass/kafka_server_jaas.conf kafka.Kafka "$@"
