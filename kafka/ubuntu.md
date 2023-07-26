@@ -63,16 +63,18 @@ WantedBy=multi-user.target
     authorizer.class.name=kafka.security.authorizer.AclAuthorizer
 
     #如果没有找到ACL（访问控制列表）配置，则允许任何操作。
-    allow.everyone.if.no.acl.found=true
+    allow.everyone.if.no.acl.found=false
+
+    #需要开启设置超级管理员,设置visitor用户为超级管理员
+    super.users=User:visitor
     ```
     - 创建目录pass，新建文件kafka_server_jaas.conf
     ``` shell
     KafkaServer {
         org.apache.kafka.common.security.plain.PlainLoginModule required
-            username="admin"
+            username="visitor"
             password="DxxZLgOh"
-            user_producer="AvRxw69t"
-            user_consumer="2HLCMSxZ";
+            user_visitor="DxxZLgOh";
     };
     ```
     - bin/kafka-server-start.sh
