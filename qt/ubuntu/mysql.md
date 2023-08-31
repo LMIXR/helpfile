@@ -15,7 +15,3 @@
 5. 将生产的so文件复制到`Qt5.13.2\5.13.2\gcc_64\plugins\sqldrivers`目录。
 6. 程序打包里要包含libmysqlclient.so，和生成是libqsqlmysql.so文件,如果还是提示驱动没有，执行`ldd libqsqlmysql.so`,
     看看libmysqlclient.so名字是不是不对。
-
-# tx2
-
-1. mysql驱动 `sudo apt-get install libqt5sql5-mysql`。
