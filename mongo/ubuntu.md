@@ -17,7 +17,7 @@
     - `use lsmonitor`
     - `db.createUser({user: "lsadmin", pwd: "Bjht12345678", roles: [{ role: "dbOwner", db: "lsmonitor" }]})`
     - `db.auth("lsadmin","Bjht12345678")` 
-3. 重启mongo `systemctl restart mongod`
+3. 重启mongo `sudo systemctl restart mongod`
 4. 添加防火墙端口 `firewall-cmd --permanent --add-port=27017/tcp`, `firewall-cmd --query-port=27017/tcp`, `firewall-cmd --reload`
 
 ## 卸载
@@ -110,7 +110,7 @@ wiredTigerCacheSizeGB=2
 # 指定存储身份验证信息的密钥文件的路径
 # keyFile=/path/to/keyfile
 ```
-7. 添加path中， `vi ~/.bashrc`, 添加`export PATH=/usr/local/mongodb/bin:$PATH`, `source ./bashrc`
+7. 添加path中， `vi ~/.bashrc`, 添加`export PATH=/usr/local/mongodb/bin:$PATH`, `source ~/.bashrc`
 8. shell 启动 `mongod --dbpath /var/lib/mongodb --logpath /var/log/mongodb/mongod.log --fork`
 9. 配置系统服务，`sudo vi /etc/systemd/system/mongod.service`，`sudo chmod a+x /etc/systemd/system/mongod.service`, 内容如下
 ``` shell
