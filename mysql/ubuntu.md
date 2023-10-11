@@ -27,6 +27,16 @@
     - flush privileges;
     - quit;
 4. 重启mysql sudo service mysql restart
+5. 开启远程
+    - `sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf`,将bind-address行注释掉
+    - 进入mysql `create user root@'%' identified by 'Bjht12345678@';`, `grant all privileges on *.* to root@'%' with grant option;`,
+        重启mysql
+6. navicat无法访问，需修改密码加密方式
+    - `ALTER USER 'root'@'localhost' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER;`
+    - `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';`
+    - `FLUSH PRIVILEGES;`
+    - `alter user 'root'@'localhost' identified by 'Bjht12345678@';`
+    - 如果开启远程，root@'%'也要修改一遍
 
 
 ## 卸载mysql
