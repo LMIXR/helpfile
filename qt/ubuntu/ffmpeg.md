@@ -117,3 +117,9 @@ ffmpeg -hwaccel cuvid -c:v h264_cuvid -i /home/huitou/test/testvideo/3.mp4 -c:v 
 ## 编解码器
 
 1. `ffmpeg -encoders`, `ffmpeg -decoders`
+
+## 常用指令
+
+1. 录像 `ffmpeg -i 地址 -f segment -segment_time 1800  name_%d.mp4`
+2. 截图 `ffmpeg -i 地址 -r 1 -ss 1 -f image2 -strftime 1 "snap/%Y-%m-%d_%H-%M-%S.jpg"`
+3. 图片合并视频  `ffmpeg -f image2 -pattern_type glob -i '*.jpg'  -vcodec libx264 -r 5 -b:v 800k test.mp4`
