@@ -123,6 +123,8 @@ Type=forking
 ExecStart=/usr/local/mongodb/bin/mongod --config /etc/mongodb.conf
 ExecReload=/bin/kill -s HUP $MAINPID  
 ExecStop=/usr/local/mongodb/bin/mongod --shutdown --config /etc/mongodb.conf
+Restart=on-failure
+RestartSec=5s
 PrivateTmp=true  
   
 [Install]  
