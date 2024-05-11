@@ -22,6 +22,8 @@
 
 ## 卸载
 1. sudo apt-get purge --auto-remove  mongodb
+2. sudo apt-get purge --auto-remove  mongodb*
+3. sudo apt-get purge --auto-remove  mongodb-org
 
 ## 离线安装
 1. 官网下载tgz版本
@@ -146,4 +148,70 @@ WantedBy=multi-user.target
 mongoexport
 
 ### 导入
-mongoimport
+mongoimport -h 127.0.0.1:27017 -d admin -c vehicle --type json --legacy --file '/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/baidu/vehicle.json'
+
+mongoimport --uri=mongodb://lsadmin:Bjht12345678@127.0.0.1:27025/lsmonitor?retryWrites=false -c pedestrain --type json --legacy --file '/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/baidu/pedestrain.json'
+
+## 命令行启动
+sudo mongod --dbpath /media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/data/db
+
+## mongo 分片
+mongod -f '/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/mongo/config/node1/mongodb.conf'
+mongod -f '/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/mongo/config/node2/mongodb.conf'
+mongod -f '/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/mongo/config/node3/mongodb.conf'
+
+mongo --port 27022
+use admin
+var cfg ={"_id":"configsvr",
+"members":[
+{"_id":1,"host":"192.168.0.222:27022"},
+{"_id":2,"host":"192.168.0.222:27023"},
+{"_id":3,"host":"192.168.0.222:27024"}
+]
+};
+rs.initiate(cfg)
+rs.status()
+		
+mongod -f '/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/mongo/cluster/mongodb.conf'
+mongos -f /media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/mongo/mongos/mongodb.conf
+
+mongo --port 27025
+use admin
+sh.addShard("192.168.0.222:27020")
+sh.addShard("192.168.0.223:27020")
+sh.status()
+sh.enableSharding("lsmonitor")
+sh.shardCollection("lsmonitor.vehicle",{_id: "hashed"})
+
+# mongos  config
+port=27025
+bind_ip=0.0.0.0
+fork=false
+logpath=/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/mongo/mongos/log/mongodb.logs
+configdb=configsvr/192.168.0.222:27022,192.168.0.222:27023,192.168.0.222:27024
+
+# mongo config node config 
+# 数据库文件位置
+dbpath=/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/mongo/config/node1/data
+#日志文件位置
+logpath=/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/mongo/config/node1/log/mongodb.logs
+# 以追加方式写入日志
+logappend=true
+# 是否以守护进程方式运行
+fork = false
+bind_ip=0.0.0.0
+port = 27022
+# 表示是一个配置服务器
+configsvr=true
+#配置服务器副本集名称
+replSet=configsvr
+
+# mongo cluster config
+
+dbpath=/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/mongo/cluster/data
+bind_ip=0.0.0.0
+port=27020
+fork=false
+logpath=/media/huitou/81703f90-ac88-47eb-8c95-2c378c9778a9/mongo/cluster/log/mongodb.logs
+#replSet=shard1
+shardsvr=true
