@@ -19,6 +19,8 @@
     - `sudo systemctl restart jicofo`
     - `sudo systemctl restart jitsi-videobridge2`
     - `sudo systemctl restart nginx`
+13. 卸载
+       `sudo apt purge jigasi jitsi-meet jitsi-meet-web-config jitsi-meet-prosody jitsi-meet-turnserver jitsi-meet-web jicofo jitsi-videobridge2`
 
     ## jibri  录像
 
