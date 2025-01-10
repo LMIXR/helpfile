@@ -86,4 +86,11 @@
 ## 挂在存储
 
 1. 临时挂载 `sudo mount /dev/nvme0n1p1 /media/nvme/`
-2. 开机自动挂在, 修改配置文件`sudo vi /etc/fstab`
+2. 开机自动挂载, 修改配置文件`sudo vi /etc/fstab`
+
+## 桌面配置指令
+
+1.  隐藏侧边栏 `gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-hide-mode 1`
+2.  不锁屏 `gsettings set org.gnome.desktop.screensaver lock-enabled false``gsettings set org.gnome.desktop.session idle-delay 0`
+3.  查询 ` gsettings list-recursively ` ` gsettings list-recursively | grep ...`
+4.  关闭更新`sudo systemctl stop apt-daily-upgrade.service`, `sudo systemctl disable apt-daily-upgrade.service`,`sudo systemctl stop apt-daily.service`,`sudo systemctl disable apt-daily.service`
