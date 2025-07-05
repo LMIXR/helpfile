@@ -123,3 +123,5 @@ ffmpeg -hwaccel cuvid -c:v h264_cuvid -i /home/huitou/test/testvideo/3.mp4 -c:v 
 1. 录像 `ffmpeg -i 地址 -f segment -segment_time 1800  name_%d.mp4`
 2. 截图 `ffmpeg -i 地址 -r 1 -ss 1 -f image2 -strftime 1 "snap/%Y-%m-%d_%H-%M-%S.jpg"`
 3. 图片合并视频  `ffmpeg -f image2 -pattern_type glob -i '*.jpg'  -vcodec libx264 -r 5 -b:v 800k test.mp4`
+4. 翻转 ` ffmpeg -hwaccel cuda -i 12#_213.mp4 -vf hflip  -c:v h264_nvenc  1111.mp4`
+5. 录像  `ffmpeg -rtsp_transport tcp -i rtsp://admin:Mcky9999@90.13.5.66:554/h265/ch1/main/av_stream -strftime 1 -c:v copy -c:a copy -f segment -segment_time 3600 -reset_timestamps 1 "output_%Y-%m-%d_%H.mkv"`
