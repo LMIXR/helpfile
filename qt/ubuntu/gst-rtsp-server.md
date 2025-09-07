@@ -14,7 +14,7 @@
 3. 准备编译，`./autogen.sh --disable-gtk-doc --noconfigure`， `NVENCODE_CFLAGS="-I/usr/local/cuda/include"`，`./configure --with-cuda-prefix="/usr/local/cuda"`， 
 4. 编译硬编码，`cd sys/nvenc`,`make `,`make install`
 5. 编译硬解码，`cd sys/nvdec`,`make `,`make install`
-6. 安装成功后，插件会安装到/usr/local/lib/gstreamer-1.0/目录，设置gstreamer插件目录，GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/usr/local/lib/gstreamer-1.0/
+6. 安装成功后，插件会安装到/usr/local/lib/gstreamer-1.0/目录，设置gstreamer插件目录，GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/usr/local/lib/gstreamer-1.0/,可执行程序需要在开始脚本添加GST_PLUGIN_PATH
 7. 提前安装的工具`apt-get install autoconf automake libtool autopoint`
 8. 还要安装以下东西
     - glib `sudo apt-get install libglib2.0-dev`
