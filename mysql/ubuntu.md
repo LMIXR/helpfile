@@ -20,15 +20,13 @@
 2. 进入mysql，`sudo cat /etc/mysql/debian.cnf`,查看用户名和密码，mysql -u debian-sys-maint -p,输入刚才看到的密码。
 3. 修改root密码
     - use mysql;
-    - 查看root用户信息 select user,host,authentication_string,plugin from user where user='root';
-    - 更新root用户信息，把密码设置为空字符串 update user set authentication_string='' where user='root';
-    - (退出mysql；注释掉/etc/my.cnf文件最后的 skip-grant-tables ；重启：sudo service mysqld restart)
-    - ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Bjht12345678@';
+    - alter user 'root'@'localhost' identified with mysql_native_password by 'Bjht12345678@';
     - flush privileges;
     - quit;
 4. 重启mysql sudo service mysql restart
 5. 开启远程
     - `sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf`,将bind-address行注释掉
+    - `UPDATE mysql.user SET Host='%' WHERE User='root' AND Host='localhost';`
     - 进入mysql `create user root@'%' identified by 'Bjht12345678@';`, `grant all privileges on *.* to root@'%' with grant option;`,
         重启mysql
 6. navicat无法访问，需修改密码加密方式
