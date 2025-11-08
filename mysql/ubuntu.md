@@ -26,9 +26,12 @@
 4. 重启mysql sudo service mysql restart
 5. 开启远程
     - `sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf`,将bind-address行注释掉
-    - `UPDATE mysql.user SET Host='%' WHERE User='root' AND Host='localhost';`
-    - 进入mysql `create user root@'%' identified by 'Bjht12345678@';`, `grant all privileges on *.* to root@'%' with grant option;`,
-        重启mysql
+    进入mysql
+    - `use mysql`
+    - `update user set host='%' where user ='root';`
+    - `FLUSH PRIVILEGES;`
+    -` GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'WITH GRANT OPTION;`,
+    重启mysql sudo service mysql restart
 6. navicat无法访问，需修改密码加密方式
     - `ALTER USER 'root'@'localhost' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER;`
     - `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';`
