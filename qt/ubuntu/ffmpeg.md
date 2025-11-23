@@ -29,6 +29,15 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 3. 配置，`./autogen.sh`，`./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/ffmpeg_bin" `
 4. 编译安装，`make -j8`,  `sudo make install`
 
+### 编译nasm (ubuntu22)
+
+1. 下载，`curl -O -L http://www.nasm.us/pub/nasm/releasebuilds/2.13.02/nasm-2.13.02.tar.bz2`
+2. 解压， `tar xjvf nasm-2.13.02.tar.bz2`，`cd nasm-2.13.02`
+3. 安装 `sudo apt-get install autoconf`
+4. 配置，`./autogen.sh`，`autoreconf --force --install`, `./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/ffmpeg_bin" `
+5. 编译安装，`make -j8`,  `sudo make install`
+6. `error: ‘pure’ attribute on function returning ‘void’`,`vi ./include/nasmlib.h`,//void pure_func seg_init(void); //注释掉这行
+
 ### 编译yasm
 
 1. 下载，`curl -O -L http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz`
