@@ -37,6 +37,7 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 4. 配置，`./autogen.sh`，`autoreconf --force --install`, `./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/ffmpeg_bin" `
 5. 编译安装，`make -j8`,  `sudo make install`
 6. `error: ‘pure’ attribute on function returning ‘void’`,`vi ./include/nasmlib.h`,//void pure_func seg_init(void); //注释掉这行
+7. 再执行一遍 `./configure`, `sudo make install`, 要不然x264编译找不到
 
 ### 编译yasm
 
