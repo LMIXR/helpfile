@@ -50,7 +50,7 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 ### 编译libx264
 
 1. 下载， `git clone https://code.videolan.org/videolan/x264.git`
-2. 解压，`tar xzvf x264`，`cd f x264`
+2. 解压，`tar xzvf x264`，`cd x264`
 3. 配置，`PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/ffmpeg_bin" --enable-shared`
 4. 编译安装，`make -j8`,  `sudo make install`
 5. `./configure  --enable-shared`重新编译安装，ffmpeg需要用到(或者直接复制lib库到)(过时，指定PKG则不需要)
@@ -69,9 +69,9 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
 
 1. 下载， `git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git`
 2. 解压，`tar xzvf nv-codec-headers`，`cd nv-codec-headers`
-3. 编译安装，`make PREFIX="$HOME/ffmpeg_build" BINDDIR="$HOME/ffmpeg_bin"`,  `make install PREFIX="$HOME/ffmpeg_build" BINDDIR="$HOME/ffmpeg_bin" `， 
+3. 编译安装，`make PREFIX="$HOME/ffmpeg_build" BINDDIR="$HOME/ffmpeg_bin"`,  `sudo make install PREFIX="$HOME/ffmpeg_build" BINDDIR="$HOME/ffmpeg_bin" `， 
 4. 如果编译ffmpeg（版本4.3.1）提示找不到ffnvcodec，需要重新`make`，`make installl`到/usr/local/include目录
-5. ffmpeg3.4.8可以使用最新版本，4.3.1版本只能使用9.1版本
+5. ffmpeg3.4.8可以使用最新版本，4.3.1版本只能使用9.1版本，否则提示`nvenc requested but not found`
 
 ### 编译ffmpeg
 
@@ -94,7 +94,7 @@ export PATH=$FFMPEG_HOME/bin:$PATH，`source /etc/profile`。
   --enable-nonfree \
   --enable-cuda \
   --enable-cuvid \
-  --enable-nvenc \
+  --enable-nvenc
   <!-- --enable-libnpp \
   --enable-cuda-nvcc -->
 

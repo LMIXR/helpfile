@@ -14,7 +14,7 @@
 ## cudnn
 
 1. 下载 https://developer.nvidia.com/rdp/cudnn-archive，根据cuda版本选择，下载 `cudnn-10.1-linux-x64-v7.6.5.32.tar.xz`，`cuDNN Runtime Library for Ubuntu18.04 (Deb)`,`cuDNN Developer Library for Ubuntu18.04 (Deb)`。
-2. 安装 解压`tar -xJvf cudnn-10.1-linux-x64-v7.6.5.32.tar.xz`
+2. 安装 解压`tar -xJvf cudnn-10.1-linux-x64-v7.6.5.32.tar.xz` `tar -zxvf  *.tgz`
     - cd cudnn
     - sudo cp include/* /usr/local/cuda/include/
     - sudo cp lib/*  /usr/local/cuda/lib64/
