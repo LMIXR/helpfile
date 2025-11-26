@@ -8,4 +8,5 @@
         set(NVINFER_INCLUDE_DIR "/home/huitou/libs/TensorRT-6.0.1.5/include")
         include_directories("/home/huitou/libs/TensorRT-6.0.1.5/include/")
 4. 编译 `mkdir build`，`cd build`，`cmake .. `，`make`，`sudo make install`
-5. 出现 /usr/local/lib/libtkDNN.so，/usr/local/lib/libkernels.so，/usr/local/include/tkDNN
+5. cuda编译 `cmake .. -DDEBUG=True -DENABLE_OPENCV_CUDA_CONTRIB=ON`, opencv没有hdf需要去掉BUILD_opencv_hdf， DetectionNN.h需要开启OPENCV_CUDACONTRIB
+6. 出现 /usr/local/lib/libtkDNN.so，/usr/local/lib/libkernels.so，/usr/local/include/tkDNN
