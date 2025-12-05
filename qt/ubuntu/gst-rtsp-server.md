@@ -6,6 +6,17 @@
 2. 编译1.14.4版本注意，gstreamer为1.14.5版本就可以，如果编译更高版本，gstreamer版本要求更高，x264库不能太高，使用152版本
     编译ffmepg时注意是否使用了高版本
 
+# 编译 (ubuntu22)
+
+1. 安装libtool, `sudo apt-get install libtool`
+2. 安装gtk-doc-tools, `sudo apt-get install gtk-doc-tools`
+3. 安装glib-2.0，查看是否存在，`pkg-config --modversion glib-2.0`, 没有安装`sudo apt install libglib2.0-0 libglib2.0-dev`
+4. 安装gstreamer，`sudo apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav`
+5. 安装gstreamer开发包，`sudo apt install libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev`
+6. 找不到/usr/lib/x86_64-linux-gnu/pkgconfig/gstreamer-1.0.pc需要注意
+7. 编译gst-rtsp-server，`./autogen.sh `, `make -j4`, `sudo make install`
+8. 264流看不了，查看/usr/lib/x86_64-linux-gnu/gstreamer-1.0,是否有libgstx264.so文件
+
 
 # 服务器硬件编码
 
