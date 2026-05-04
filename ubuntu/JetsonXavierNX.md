@@ -30,7 +30,7 @@
 7. 输入n，增加新分区，primary 主分区
 8. 分区号输入1
 9. First sector，直接ENTER，将填入默认值
-10. 输入p，查看分区，看到/dev/nvme0n1p1即可。
+10. 输入p，查看分区，看到/dev/nvme0n1p1即可，按w保存。
 11. 格式化分区，`sudo mke2fs -t ext4  /dev/nvme0n1p1`
 12. 输入df -l 查看分区，如果没有则挂在分区`sudo mount /dev/nvme0n1p1 /mnt`
 12. 使用rootOnNVMe复制sd数据到硬盘。

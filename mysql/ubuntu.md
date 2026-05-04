@@ -38,7 +38,8 @@
     - `FLUSH PRIVILEGES;`
     - `alter user 'root'@'localhost' identified by 'Bjht12345678@';`
     - 如果开启远程，root@'%'也要修改一遍
-
+7. 重新初始化数据库
+    - `sudo mysqld --initialize-insecure`
 
 ## 卸载mysql
 
@@ -86,3 +87,15 @@
     - `sudo dpkg -i mysql-community-server_5.7.38-1ubuntu18.04_amd64.deb`
     - `sudo dpkg -i mysql-server_5.7.38-1ubuntu18.04_amd64.deb`
 4. 卸载，`dpkg --list|grep mysql`，然后用`sudo apt autoremove --purge xxx` 依次删除
+
+## 更新数据目录
+
+1. 创建目录 `sudo mkdir /data/mysql`
+2. 修改目录权限 `sudo chown -R mysql:mysql /data/mysql`
+3. 修改apparmor配置，`sudo vi /etc/apparmor.d/usr.sbin.mysqld`,修改allow data dir access
+    重启 `sudo /etc/init.d/apparmor restart`
+4. 修改配置文件 `sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf`, datadir = /data/mysql
+5. 新目录没有数据，需要初始化数据库，先停止数据库 `sudo systemctl stop mysql.service` `sudo mysqld --initialize-insecure`，多次初始化需要清空/data/mysql目录
+6. 重启 `sudo service mysql restart`
+7. 进入数据库，不需要密码 `mysql -u root -p`
+7. 如果新目录在启动挂载的磁盘，需要修改启动依赖 `sudo vi /etc/systemd/system/multi-user.target.wants/mysql.service`,修改after
