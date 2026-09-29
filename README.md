@@ -98,4 +98,6 @@
 
 ## 问题与补充
 
+本项目由 [LMIXR](https://github.com/LMIXR) 维护，欢迎交流 CV 部署经验。
+
 发现步骤失效、有更简洁的配置方法，或希望补充新的部署场景，可以通过 [GitHub Issues](https://github.com/LMIXR/helpfile/issues) 反馈。描述时请附上操作系统、硬件、软件版本和相关报错，方便定位问题。

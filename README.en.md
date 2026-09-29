@@ -41,4 +41,6 @@ See the [Chinese README](README.md) for the full navigation.
 
 ## Corrections and additions
 
+Maintained by [LMIXR](https://github.com/LMIXR). Contributions and practical CV deployment notes are welcome.
+
 Report outdated steps, suggest improvements, or request a deployment topic through [GitHub Issues](https://github.com/LMIXR/helpfile/issues). Include the operating system, hardware, software versions, and relevant error output.
